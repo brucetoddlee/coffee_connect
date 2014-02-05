@@ -8,6 +8,8 @@ CoffeeConnect::Application.routes.draw do
 
   get "/:yelp_id", to: "places#show", as: "place"
 
+  post "/:yelp_id", to: "test#create"
+
   # resources :places
 
   resources :tests
