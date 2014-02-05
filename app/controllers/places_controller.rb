@@ -35,7 +35,6 @@ class PlacesController < ApplicationController
 
     api_request_by_id = access_token.get(path).body
     @place = JSON.parse(api_request_by_id)
-    # binding.pry
   end
 
 end
