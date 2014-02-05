@@ -22,7 +22,7 @@ var formHelper = (function(_csrf_token){
 
 	return {
 		fieldFor: function($form, name, key, val) {
-			var formField = '<input type="hidden" name="' + name + '[' + key + '] value="' + val + '">'
+			var formField = '<input type="hidden" name="' + name + '[' + key + ']" value="' + val + '">'
 			$form.append(formField)
 			return $form;
 		},
