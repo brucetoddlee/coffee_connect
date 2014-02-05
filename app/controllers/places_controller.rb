@@ -21,6 +21,8 @@ class PlacesController < ApplicationController
   def show
     id = params[:yelp_id]
 
+    gon._csrf_token = session[:_csrf_token]
+
     consumer_key = '5iQ5iCur5SWs9R9uPsu-1Q'
     consumer_secret = 'HBadDsFa_4fd_jgxDgeCy8xaAyQ'
     token = 'aJlK9VnVGifUax-MQQZOaRqrhlTu60AG'

@@ -24,23 +24,8 @@
 
 
 
-function fieldFor($form, name, key, val) {
-	var formField = "<input type='hidden' name='"+name+"['"+key+"]' value='"+val+"'>"
-	$form.append(formField)
-	return $form;
-}
-
-function formFor(action, method, name, data){
-	var $form = $("<form id='new_"+name+"' action='"+action+"' method='"+method+"'></form>")
-	$.each(data, function(key, val){
-		$form = fieldFor($form, name, data)
-	})
-
-	return $form;
-}
-
 function setupHiddenForm(testResult, con_id) {
-	$form = formFor(window.location.pathname, "post", "test", testResult);
+	$form = formHelper.formFor(window.location.pathname, "post", "test", testResult);
 	$form.append("<button>Save Result</button>");
 	$(con_id).append($form);
 }

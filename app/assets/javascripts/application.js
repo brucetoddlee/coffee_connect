@@ -14,3 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var formHelper = (function(_csrf_token){
+	function tokenTag() {
+	  return $('<input name="authenticity_token" type="hidden" value="'+_csrf_token+'">')
+	}
+
+	return {
+		fieldFor: function($form, name, key, val) {
+			var formField = "<input type='hidden' name='"+name+"['"+key+"]' value='"+val+"'>"
+			$form.append(formField)
+			return $form;
+		},
+
+		formFor:  function(action, method, name, data){
+			var $form = $("<form id='new_"+name+"' action='"+action+"' method='"+method+"'></form>")
+			$.each(data, function(key, val){
+				$form = fieldFor($form, name, data)
+			})
+
+			// ADD CSRF TOKEN TO FORM
+			$form.append(tokenTag())
+
+			return $form;
+		}
+	}	
+})(gon._csrf_token)
