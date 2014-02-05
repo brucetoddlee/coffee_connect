@@ -1,2 +1,11 @@
 <h1>Welcome to Coffee Connect!</h1>
 
+<p>
+Enter your zip code to see nearby coffee shops. Select a coffee shop to view Wi-Fi details and to run your own speed test.
+</p>
+
+<%= form_tag("/places/index", method: "get") do %>
+  <%= label_tag(:zip_code, "Zip Code:") %></br>
+  <%= text_field_tag(:zip_code) %></br>
+  <%= submit_tag("Search") %>
+<% end %>

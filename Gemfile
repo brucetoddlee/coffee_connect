@@ -36,6 +36,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'oauth'
+
 gem 'rails_12factor', group: :production
 
 ruby "2.0.0"
