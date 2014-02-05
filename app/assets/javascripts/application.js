@@ -30,7 +30,7 @@ var formHelper = (function(_csrf_token){
 		formFor:  function(action, method, name, data){
 			var $form = $("<form id='new_"+name+"' action='"+action+"' method='"+method+"'></form>")
 			$.each(data, function(key, val){
-				$form = formHelper.fieldFor($form, name, data)
+				$form = formHelper.fieldFor($form, name, key, val)
 			})
 
 			// ADD CSRF TOKEN TO FORM
