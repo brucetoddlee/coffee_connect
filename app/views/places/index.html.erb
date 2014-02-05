@@ -1,3 +1,19 @@
-<h1>Nearby Coffee Shops</h1>
+<div class="container">
 
-<%= @api_request %>
+<h2>Nearby Coffee Shops</h2>
+</br>
+
+  <% @results["businesses"].each do |place| %>
+  <div>
+    <h4><%= link_to(place["name"], place_path(place["id"]), method: "get") %></h4>
+    Yelp rating: <img src= "<%= place["rating_img_url"] %>" ></br>
+    <% place["location"]["address"].each do |line| %>
+      <%= line %></br>
+    <%end%>
+
+    Wi-Fi avg download speed: 7.0 Mbps</br>
+  </div></br>
+  <%end%>
+
+</div>
+

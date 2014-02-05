@@ -1,3 +1,18 @@
-<h1>Coffee Shop Details</h1>
+<div class = "container">
+
+<h2><%= @place["name"] %> Details</h2></br>
+
+<img src="<%= @place["image_url"] %>"></br>
+
+<img src="<%= @place["rating_img_url"] %>"></br>
+<%= @place["review_count"] %> Yelp reviews</br>
+</br>
+
+<% @place["location"]["display_address"].each do |line| %>
+  <%= line %></br>
+<%end%>
+
+</br>
 
 
+</div>
