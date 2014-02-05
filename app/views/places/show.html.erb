@@ -48,7 +48,6 @@ function setupHiddenForm(testResult, con_id) {
 
  function onTestCompleted(testResult) { 
  
- setupHiddenForm(testResult, "#msg");
 
  msgDiv.innerHTML = 
  "<h3>"+ 
@@ -59,7 +58,9 @@ function setupHiddenForm(testResult, con_id) {
  "Test Server: "+testResult.testServer +"<br/>"+ 
  "IP: " +testResult.ip_address +"<br/>"+ 
  "Hostname: " +testResult.hostname +"<br/>"+ 
- "</h3>"; 
+ "</h3>";
+
+  setupHiddenForm(testResult, "#msg"); 
  } 
  
  function onError(error) { 
