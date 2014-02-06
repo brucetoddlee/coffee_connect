@@ -21,13 +21,13 @@ var formHelper = (function(_csrf_token){
 	}
 
 	return {
-		fieldFor: function($form, name, key, val) {
+		fieldFor: function($form, name, key, val){
 			var formField = '<input type="hidden" name="' + name + '[' + key + ']" value="' + val + '">'
 			$form.append(formField)
 			return $form;
 		},
 
-		formFor:  function(action, method, name, data){
+		formFor: function(action, method, name, data){
 			var $form = $("<form id='new_"+name+"' action='"+action+"' method='"+method+"'></form>")
 			$.each(data, function(key, val){
 				$form = formHelper.fieldFor($form, name, key, val)

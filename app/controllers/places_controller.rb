@@ -18,6 +18,16 @@ class PlacesController < ApplicationController
   	render "places/index.html.erb"
   end
 
+  # def calculate_avg(test_metric)
+  #   tests_count = Test.count(:yelp_id)
+
+  #   test_metric_array = Test.where(yelp_id: :yelp_id).map do |el| 
+  #     el["test_metric"]
+  #   end
+
+  #   avg = (test_metric_array.sum / tests_count).round(1)
+  # end
+
   def show
     id = params[:yelp_id]
 
@@ -36,7 +46,46 @@ class PlacesController < ApplicationController
     path = "/v2/business/#{params[:yelp_id]}"
 
     api_request_by_id = access_token.get(path).body
-    @place = JSON.parse(api_request_by_id) 
+    @place = JSON.parse(api_request_by_id)
+
+
+    tests_count = Test.count(:yelp_id)
+
+
+    download_array = Test.where(yelp_id: id).map do |el| 
+      el["download"]
+    end
+
+    avg_download = (download_array.sum / tests_count).round(1)
+
+
+    upload_array = Test.where(yelp_id: id).map do |el| 
+      el["upload"]
+    end
+
+    avg_upload = (upload_array.sum / tests_count).round(1)
+
+
+    latency_array = Test.where(yelp_id: id).map do |el| 
+      el["latency"]
+    end
+
+    avg_latency = (latency_array.sum / tests_count).round(1)
+    
+
+    jitter_array = Test.where(yelp_id: id).map do |el| 
+      el["jitter"]
+    end
+
+    avg_jitter = (jitter_array.sum / tests_count).round(1)
+
+
+    @place["tests_count"] = tests_count
+    @place["avg_download"] = avg_download
+    @place["avg_upload"] = avg_upload
+    @place["avg_latency"] = avg_latency
+    @place["avg_jitter"] = avg_jitter
+
   end
 
 end
