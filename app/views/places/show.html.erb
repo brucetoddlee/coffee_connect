@@ -1,4 +1,5 @@
 <div class = "container">
+<div style="margin-left:100px">
 
   <h2><%= @place["name"] %></h2></br>
 
@@ -60,15 +61,13 @@
 
   function onTestCompleted(testResult) { 
   msgDiv.innerHTML = 
-  "<h4>"+ 
   "Download: " +testResult.download +"Mbps <br/>"+ 
   "Upload: " +testResult.upload +"Mbps <br/>"+ 
   "Latency: " +testResult.latency +"ms <br/>"+ 
   "Jitter: " +testResult.jitter +"ms <br/>"+ 
   "Test Server: "+testResult.testServer +"<br/>"+ 
   "IP: " +testResult.ip_address +"<br/>"+ 
-  "Hostname: " +testResult.hostname +"<br/>"+ 
-  "</h4>";
+  "Hostname: " +testResult.hostname +"<br/>";
 
   setupHiddenForm(testResult, "#msg"); 
   } 
@@ -81,4 +80,5 @@
 
 </br>Speed tests powered by <a href="http://SpeedOf.Me">SpeedOf.Me</a>
 
+</div>
 </div>
