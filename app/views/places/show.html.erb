@@ -11,7 +11,11 @@
   <% @place["location"]["display_address"].each do |line| %>
     <%= line %></br>
 
-  <%end%></br>
+  <%end%>
+
+  <a href="https://www.google.com/maps/preview#!q=<%= @google_maps_address %>" target="_blank">(map)</a></br>
+  
+  </br>
 
   <h4>Wi-Fi speed test results</h4>
 
