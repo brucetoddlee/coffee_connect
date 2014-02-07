@@ -34,7 +34,7 @@
 
 <h4>Run new speed test</h4> 
 
-<button id="btnStart" type="button" onclick="btnStartClick()"><h4>Start Test</h4></button> 
+<button id="btnStart" type="button" class="btn btn-success" onclick="btnStartClick()">Start Test</button> 
 
 <div id="msg"></div> 
 
@@ -55,7 +55,7 @@
 
   function setupHiddenForm(testResult, con_id) {
   $form = formHelper.formFor(window.location.pathname, "post", "test", testResult);
-  $form.append("<button>Save Result</button>");
+  $form.append("<button class="btn btn-success">Save Result</button>");
   $(con_id).append($form);
   }
 
