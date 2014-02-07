@@ -9,6 +9,7 @@ gem 'rails', '4.0.2'
 gem 'pg'
 
 gem 'pry', :group => :development
+gem 'dotenv-rails', :group => :development
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

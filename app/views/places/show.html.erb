@@ -14,7 +14,7 @@
   <%end%></br>
 
   <h4>Wi-Fi speed test results</h4>
-  
+
   Average results from <%= @place["tests_count"] %> speed tests:</br>
 
   Download: <%= @place["avg_download"] %> Mbps</br>
@@ -35,7 +35,7 @@
 
 <script type="text/javascript"> 
 
-  SomApi.account = "SOM52ef3fd308dbe";
+  SomApi.account = "<%= ENV['SOM_API_KEY'] %>";
   SomApi.domainName = "coffeeconnect.herokuapp.com";
   SomApi.config.sustainTime = 4; 
   SomApi.onTestCompleted = onTestCompleted; 

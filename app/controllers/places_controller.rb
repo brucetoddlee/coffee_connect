@@ -1,10 +1,10 @@
 class PlacesController < ApplicationController
  
   def index
-  	consumer_key = '5iQ5iCur5SWs9R9uPsu-1Q'
-  	consumer_secret = 'HBadDsFa_4fd_jgxDgeCy8xaAyQ'
-  	token = 'aJlK9VnVGifUax-MQQZOaRqrhlTu60AG'
-  	token_secret = 'B8t5DXfEv-j04U7PqsJrYVJjZkk'
+  	consumer_key = ENV['YELP_CONSUMER_KEY']
+  	consumer_secret = ENV['YELP_CONSUMER_SECRET']
+  	token = ENV['YELP_TOKEN']
+  	token_secret = ENV['YELP_TOKEN_SECRET']
 
   	api_host = 'api.yelp.com'
 
@@ -38,10 +38,10 @@ class PlacesController < ApplicationController
 
     gon._csrf_token = session[:_csrf_token]
 
-    consumer_key = '5iQ5iCur5SWs9R9uPsu-1Q'
-    consumer_secret = 'HBadDsFa_4fd_jgxDgeCy8xaAyQ'
-    token = 'aJlK9VnVGifUax-MQQZOaRqrhlTu60AG'
-    token_secret = 'B8t5DXfEv-j04U7PqsJrYVJjZkk'
+    consumer_key = ENV['YELP_CONSUMER_KEY']
+    consumer_secret = ENV['YELP_CONSUMER_SECRET']
+    token = ENV['YELP_TOKEN']
+    token_secret = ENV['YELP_TOKEN_SECRET']
 
     api_host = 'api.yelp.com'
 
