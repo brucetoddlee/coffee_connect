@@ -10,10 +10,6 @@ CoffeeConnect::Application.routes.draw do
 
   post "/:yelp_id", to: "tests#create"
 
-  # resources :places
-
   resources :tests
-
-  # post '/places/index' => 'places#retrieve'
 
 end
