@@ -17,7 +17,7 @@ class TestsController < ApplicationController
   	test[:yelp_id] = yelp_id	
   	Test.create(test)
 
-  	redirect_to "/:yelp_id"
+  	redirect_to "/#{yelp_id}"
   end
 
 end
