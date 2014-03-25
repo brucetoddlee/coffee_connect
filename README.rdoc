@@ -1,28 +1,10 @@
-== README
+== CoffeeConnect
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CoffeeConnect lets you find a nearby coffee shop where the Wi-Fi is good enough to get work done.
 
-Things you may want to cover:
+CoffeeConnect automatically determines your location and shows you a map view or list view of nearby coffee shops, their Yelp star ratings, and their Wi-Fi quality rating.
 
-* Ruby version
+When you’re at a coffee shop and using its Wi-Fi, you can run a broadband speed test and contribute to the coffee shop’s overall Wi-Fi quality rating.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Try it out:
+http://coffeeconnect.herokuapp.com/

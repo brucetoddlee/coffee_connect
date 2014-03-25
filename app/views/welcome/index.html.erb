@@ -1,10 +1,17 @@
+<div id="wrapper" ng-controller="MainCtrl">
+
+  <div id="map_canvas" ui-map="map"
+      ui-options="mapOptions"
+      ui-event="{'map-idle' : 'onMapIdle()'}">
+  </div>
+
+</div>
+
+
 <div class = "container">
 
   <div style="text-align:center">
 
-    <h2>Welcome to CoffeeConnect!</h2></br>
-
-    <img src="https://lh4.ggpht.com/BW1ss243O2fsT61PzpSeq5BEfG_JDuWAwhqUAPx3DuRaIKkn2q6QMW_-sWv0wpqoRg=w300-rw">
     </br></br>
 
     <p>Enter zip code to see nearby coffee shops with free Wi-Fi.</p>
