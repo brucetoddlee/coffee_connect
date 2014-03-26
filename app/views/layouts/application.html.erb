@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MapTemplate">
+<html>
 
 <head>
 
@@ -49,12 +49,11 @@
 
   <%= yield %>
 
-  <%= javascript_include_tag "vendor/custom.modernizr" %>
   <script src ="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js">
   </script>
   <script src ="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.3.9/sugar.min.js">
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7zEqCFlq9de5lL6fwGKj9Hqk6k3CfSkk&?libraries=places&sensor=true">
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_KEY']%>&sensor=true">
   </script>
 
   <%= javascript_include_tag "application" %>

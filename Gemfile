@@ -10,6 +10,8 @@ gem "angularjs-rails", "~> 1.0.8"
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'devise'
+
 gem 'pry', :group => :development
 gem 'dotenv-rails', :group => :development
 
@@ -29,10 +31,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-# gem 'turbolinks'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem 'json'
 
 gem 'typhoeus', '~> 0.6.7'
 
@@ -51,12 +55,18 @@ end
 
 gem 'oauth'
 
+gem 'yelpster', '~> 1.2.0'
+
+gem 'geocoder'
+
 gem 'rails_12factor', group: :production
 
 ruby "2.0.0"
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
+
+gem 'handlebars_assets'
 
 # Use unicorn as the app server
 # gem 'unicorn'

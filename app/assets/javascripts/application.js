@@ -10,12 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require handlebars.runtime
 //= require jquery
 //= require jquery_ujs
 //= require angular
 //= require angular-resource
 //= require_tree .
-//= require ./main.js
 
 var formHelper = (function(_csrf_token){
 	function tokenTag() {

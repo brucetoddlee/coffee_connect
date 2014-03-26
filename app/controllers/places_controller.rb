@@ -1,36 +1,41 @@
 class PlacesController < ApplicationController
  
-  def index
-  	consumer_key = ENV['YELP_CONSUMER_KEY']
-  	consumer_secret = ENV['YELP_CONSUMER_SECRET']
-  	token = ENV['YELP_TOKEN']
-  	token_secret = ENV['YELP_TOKEN_SECRET']
+  include Yelp::V2::Search::Request
 
-  	api_host = 'api.yelp.com'
+  def create
+    search_params = params.require(:query).permit(:zipcode)
 
-  	consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
-  	access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+    PlaceResults.all.each do |record|
+      record.destroy
+    end 
 
-    path = "/v2/search?term=coffee&location=#{params[:zip_code]}&attrs=WiFi.free"
+    client = Yelp::Client.new
+    request = Location.new(
+      term: "coffee shop",
+      zipcode: search_params[:zipcode]
+    )
+    response = client.search(request)
 
-  	api_request = access_token.get(path).body
-  	@results = JSON.parse(api_request)
+    response["businesses"].each do |p|
+      result = PlaceResults.create(
+        name: p["name"],
+        address: p["location"]["address"].first,
+        city: p["location"]["city"],
+        state: p["location"]["state_code"],
+        phone: p["display_phone"],
+        website: p["url"],
+        logo: p["image_url"],
+        rating_img: p["rating_img_url"]
+      )
+      result.concat_full_address
+      result.save
+    end
+    results = PlaceResults.all
 
-    @results["businesses"].each do |place|
-
-      tests_count = Test.where(yelp_id: place["id"]).count
-      if tests_count == 0
-        place["avg_download"] = "-"
-      else
-        download_array = Test.where(yelp_id: place["id"]).map do |el| 
-          el["download"]
-        end
-        avg_download = (download_array.sum / tests_count).round(1)
-        place["avg_download"] = avg_download
-      end
+    respond_to do |f|
+      f.json { render :json => results, only: [:id, :name, :full_address, :website, :logo, :rating_img, :latitude, :longitude] }
     end
 
-  	render "places/index.html.erb"
   end
 
   def show
@@ -94,5 +99,5 @@ class PlacesController < ApplicationController
     @google_maps_address = @place["location"]["display_address"][0].gsub(" ", "+") + "+" + @place["location"]["postal_code"]
 
   end
-
-end
+  
+end 

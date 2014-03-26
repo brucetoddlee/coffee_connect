@@ -1,23 +1,44 @@
 <div class="container">
 
-  <div style="margin-left:100px">
+<div class="row">
 
-    <h2>Nearby Coffee Shops</h2>
-    </br>
+    <!-- Activity filter -->
+    <div class="col-sm-5">
+      <div class="input-group">
+        <form accept-charset="UTF-8" action="/places" class="new_yelpfind" id="new_yelpfind" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="vDC9W9LjOCVXbABGWOG7T5ufWcQZzfLMAgwOQTiLX8M=" /></div>
+        <input class="input-field" id="yelpfind_zipcode" name="yelpfind[zipcode]" placeholder="5-digit zip code" type="text" /><br />
+      </div><!-- /input-group -->
+    </div><!-- /.col-sm-4 -->
 
-    <% @results["businesses"].each do |place| %>
-    <div>
-      <h4><%= link_to(place["name"], place_path(place["id"]), method: "get") %></h4>
-      Yelp rating: <img src= "<%= place["rating_img_url"] %>" ></br>
-      <% place["location"]["address"].each do |line| %>
-        <%= line %></br>
-      <%end%>
+    <div class="col-sm-4 col-sm-offset-1">
+      <button id="search_button" class="btn btn-primary btn-search">Search</button>
+    </div><!-- /.col-sm-4 -->
 
-      Wi-Fi avg download speed: <%= place["avg_download"] %> Mbps</br>
-    </div></br>
-    <%end%>
+  </div><!-- /.row -->
 
-  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div id="spinwheel" class="col-sm-12 spinner-holder"> <!-- Div for spinner image -->
+      <!-- <img src="http://blog-well.com/wp-content/uploads/2007/06/bar-circle.gif" /> -->
+    </div>
+    <div class="col-sm-12 search-header">
+      <h2>Nearby Coffee Shops</h2>
+    </div>
+    <!-- Results div -->
+    <div class="leftdiv col-sm-4">
+      <div class="results">
+        <table id="resultsTable" class="table table-striped">
+          <!-- data to be populated from Handlebars template result_list.hbs -->
+        </table>
+      </div>
+    </div> <!-- /Results div -->
+    <!-- Map div -->
+    <div class="rightdiv col-sm-8">
+      <div id="map-canvas"></div>
+    </div> <!-- /Map div -->
+  </div
 
 </div>
 
