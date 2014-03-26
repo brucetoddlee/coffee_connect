@@ -6,9 +6,9 @@ CoffeeConnect::Application.routes.draw do
 
   get "/places/index" => "places#index", as: :index
 
-  # get "/places/:id" => "places#show", as: :show
+  get "/places/:id" => "places#show", as: :show
 
-  get "/places/:yelp_id", to: "places#show", as: "place"
+  get "/:yelp_id", to: "places#show", as: "place"
 
   post "/:yelp_id", to: "tests#create"
 

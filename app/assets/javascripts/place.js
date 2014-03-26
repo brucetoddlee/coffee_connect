@@ -38,22 +38,22 @@ var search_initialize = function() {
         
         // Populate the Google Map with markers from "result" object
         setMarker(result);
+        console.log(result);
       });
 
       // Add event listener for button click and View Details
-      // $(".addToItinerary").on("click", function(event){
-      //   console.log(this);
+      // $(".viewDetails").on("click", function(event){
       //   var yelp_id = $(this).attr("data-id");
 
       //   console.log(yelp_id);
 
       //   $.ajax({
-      //     url: "/places/philz-coffee-san-francisco-3",
+      //     url: "/philz-coffee-san-francisco-3",
       //     type: "GET"
       //   });
 
       //   });
-      // });
+    });
 
   });
 };

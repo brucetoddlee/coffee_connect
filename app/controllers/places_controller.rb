@@ -18,6 +18,7 @@ class PlacesController < ApplicationController
 
     response["businesses"].each do |p|
       result = PlaceResults.create(
+        yelp_id: p["id"],
         name: p["name"],
         address: p["location"]["address"].first,
         city: p["location"]["city"],
@@ -33,7 +34,7 @@ class PlacesController < ApplicationController
     results = PlaceResults.all
 
     respond_to do |f|
-      f.json { render :json => results, only: [:id, :name, :full_address, :website, :logo, :rating_img, :latitude, :longitude] }
+      f.json { render :json => results, only: [:id, :name, :full_address, :website, :logo, :rating_img, :latitude, :longitude, :yelp_id] }
     end
 
   end
@@ -98,6 +99,8 @@ class PlacesController < ApplicationController
 
     @google_maps_address = @place["location"]["display_address"][0].gsub(" ", "+") + "+" + @place["location"]["postal_code"]
 
+    # render "places/show.html.erb"
+  
   end
   
 end 
