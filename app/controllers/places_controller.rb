@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
       # latitude: 37.782093,
       # longitude: -122.483230
     )
-    
+
     response = client.search(request)
 
     response["businesses"].each do |p|
@@ -34,12 +34,14 @@ class PlacesController < ApplicationController
         rating_img: p["rating_img_url"]
       )
       result.concat_full_address
+      result.calc_avg_download
       result.save
     end
+
     results = PlaceResults.all
 
     respond_to do |f|
-      f.json { render :json => results, only: [:id, :name, :full_address, :website, :logo, :rating_img, :latitude, :longitude, :yelp_id] }
+      f.json { render :json => results, only: [:id, :name, :full_address, :website, :logo, :rating_img, :latitude, :longitude, :yelp_id, :avg_download] }
     end
 
   end

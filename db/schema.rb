@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326223935) do
+ActiveRecord::Schema.define(version: 20140327071453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140326223935) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "yelp_id"
+    t.float    "avg_download"
   end
 
   add_index "place_results", ["yelp_id"], name: "index_place_results_on_yelp_id", using: :btree

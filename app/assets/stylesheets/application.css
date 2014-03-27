@@ -54,11 +54,11 @@ color: #555;
   width: 450px;
 }
 
-.wingman-logo {
-  display: inline-block;
-  margin-top: 20px;
-  font-family: 'Monoton', cursive;
-  font-size: 50px;
+.coffeeconnect-logo {
+  /*display: inline-block;*/
+  /*margin-top: 20px;*/
+  font-family: 'Diplomata', cursive;
+  /*font-size: 80px;*/
   color: white;
 }
 
