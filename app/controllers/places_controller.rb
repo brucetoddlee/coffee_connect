@@ -10,10 +10,15 @@ class PlacesController < ApplicationController
     end 
 
     client = Yelp::Client.new
+
     request = Location.new(
       term: "coffee shop",
+      # attrs: "WiFi.free",
       zipcode: search_params[:zipcode]
+      # latitude: 37.782093,
+      # longitude: -122.483230
     )
+    
     response = client.search(request)
 
     response["businesses"].each do |p|
@@ -98,8 +103,6 @@ class PlacesController < ApplicationController
     @place["avg_jitter"] = avg_jitter
 
     @google_maps_address = @place["location"]["display_address"][0].gsub(" ", "+") + "+" + @place["location"]["postal_code"]
-
-    # render "places/show.html.erb"
   
   end
   
