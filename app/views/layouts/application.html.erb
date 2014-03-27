@@ -30,18 +30,34 @@
 
 <body>
 
-  <div class="navbar navbar-inverse navbar-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand coffeeconnect-logo" href="/">CoffeeConnect</a>
-          </div>
+  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand coffeeconnect-logo" href="/">CoffeeConnect</a>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="col-sm-3 col-md-3 pull-right">
+          <form accept-charset="UTF-8" action="/places" class="new_yelpfind navbar-form" id="new_yelpfind" method="post">
+            <div class="input-group">
+              <input name="utf8" type="hidden" value="&#x2713;" />
+              <input name="authenticity_token" type="hidden" value="vDC9W9LjOCVXbABGWOG7T5ufWcQZzfLMAgwOQTiLX8M=" />
+              <input class="form-control" id="yelpfind_zipcode" name="yelpfind[zipcode]" placeholder="zip code" type="text" />
+
+              <div class="input-group-btn">
+                  <button id="search_button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
+    </div>
   </div>
 
   <div class = "container">
