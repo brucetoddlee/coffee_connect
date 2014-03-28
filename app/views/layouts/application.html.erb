@@ -13,7 +13,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <%= include_gon %>
-  <%= stylesheet_link_tag    "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Diplomata' rel='stylesheet' type='text/css'>
 
@@ -23,9 +22,9 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   
+  <%= stylesheet_link_tag    "application" %>
+
 </head>
 
 <body>
@@ -74,6 +73,8 @@
   </script>
 
   <%= javascript_include_tag "application" %>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 </body>
 

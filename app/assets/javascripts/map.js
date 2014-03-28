@@ -9,6 +9,10 @@ var clearMarkers = function() {
 };
 
 var map_initialize = function() {
+
+
+  $("#spinwheel").show();
+
   var mapOptions = {
     zoom: 15
   };
@@ -29,6 +33,8 @@ var map_initialize = function() {
       });
 
       map.setCenter(pos);
+      doYelpSearch(pos);
+
     }, function() {
       handleNoGeolocation(true);
     });
@@ -56,23 +62,29 @@ function handleNoGeolocation(errorFlag) {
 }
 
 function setMarker(result) {
-  console.log("in the setMarker function");
+
   // Populate Google Map with markers
   var position = new google.maps.LatLng(
     result.latitude,
     result.longitude
   );
-  // var marker_image = 'images/restaurant.png';
+
+  var infowindow = new google.maps.InfoWindow();
+
+  // var marker_image = 'images/coffee-cup.svg';
+
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    // icon: marker_image
+    // icon: marker_image,
     data: {text: "<h4>"+result.name+"</h4><br /><p>"+result.full_address+"</p>"},
     title: result.name
   });
+
   google.maps.event.addListener(marker, 'click', function() { 
     onItemClick(event, this);
   });
+
   markers.push(marker);
 }
 

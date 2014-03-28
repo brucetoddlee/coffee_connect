@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
   include Yelp::V2::Search::Request
 
   def create
-    search_params = params.require(:query).permit(:zipcode)
+    search_params = params.require(:query).permit(:latitude,:longitude)
 
     PlaceResults.all.each do |record|
       record.destroy
@@ -11,13 +11,11 @@ class PlacesController < ApplicationController
 
     client = Yelp::Client.new
 
-    request = Location.new(
-      term: "coffee shop",
-      # attrs: "WiFi.free",
-      zipcode: search_params[:zipcode]
-      # latitude: 37.782093,
-      # longitude: -122.483230
-    )
+    request = GeoPoint.new(
+      :term => "coffee shop",
+      # :attrs => "WiFi.free",
+      :latitude => search_params[:latitude],
+      :longitude => search_params[:longitude])
 
     response = client.search(request)
 

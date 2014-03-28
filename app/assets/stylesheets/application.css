@@ -7,6 +7,11 @@ body{
 
 /* ----- modified Bootstrap CSS ------------------------------------- */
 
+/*.navbar-inverse {
+    background-color: #5C3317;
+    border-color: #E7E7E7;
+}*/
+
 .navbar-default .navbar-brand {
   color: #777;
 }
