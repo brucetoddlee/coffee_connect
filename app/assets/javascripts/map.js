@@ -76,7 +76,7 @@ function setMarker(result) {
     position: position,
     map: map,
     icon: marker_image,
-    data: {text: "<h4>"+result.name+"</h4><br /><p>Wi-Fi avg speed: "+result.avg_download+" Mbps</p>"},
+    data: {text: "<h4>"+result.name+"</h4><p>Wi-Fi speed: "+result.avg_download+" Mbps</p>"},
     title: result.name
   });
 
