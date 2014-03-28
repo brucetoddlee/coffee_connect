@@ -10,7 +10,6 @@ var clearMarkers = function() {
 
 var map_initialize = function() {
 
-
   $("#spinwheel").show();
 
   var mapOptions = {
@@ -69,15 +68,15 @@ function setMarker(result) {
     result.longitude
   );
 
-  var infowindow = new google.maps.InfoWindow();
+  infowindow = new google.maps.InfoWindow();
 
-  // var marker_image = 'images/coffee-cup.svg';
+  var marker_image = 'coffee-cup.png';
 
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    // icon: marker_image,
-    data: {text: "<h4>"+result.name+"</h4><br /><p>"+result.full_address+"</p>"},
+    icon: marker_image,
+    data: {text: "<h4>"+result.name+"</h4><br /><p>Wi-Fi avg speed: "+result.avg_download+" Mbps</p>"},
     title: result.name
   });
 

@@ -1,10 +1,12 @@
 == CoffeeConnect
 
-CoffeeConnect lets you find a nearby coffee shop where the Wi-Fi is good enough to get work done.
+CoffeeConnect helps you find a nearby coffee shop where the Wi-Fi is good enough to get work done.
 
-CoffeeConnect automatically determines your location and shows you a map view or list view of nearby coffee shops, their Yelp star ratings, and their Wi-Fi quality rating.
+CoffeeConnect automatically determines your location and shows you a map view and list view of nearby coffee shops, their Yelp star ratings, and their Wi-Fi quality rating.
 
-When you’re at a coffee shop and using its Wi-Fi, you can run a broadband speed test and contribute to the coffee shop’s overall Wi-Fi quality rating.
+You can also search for coffee shops by zip code.
+
+When you’re at a coffee shop and using its Wi-Fi, you can run a broadband speed test and contribute to that coffee shop’s overall Wi-Fi quality rating.
 
 Try it out:
 http://coffeeconnect.herokuapp.com/

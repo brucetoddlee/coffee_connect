@@ -1,15 +1,4 @@
 class TestsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
 
   def create
   	yelp_id = params[:yelp_id]
